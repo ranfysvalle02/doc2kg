@@ -10,64 +10,97 @@ curl -X POST "https://--modal-.modal.run" -F "file=@/Users/<user>/Downloads/LLM-
 ```
 {
   "ai_kg": {
-    "name": "language_models_knowledge_graph",
+    "name": "Data Resilience Strategy with MongoDB Atlas",
     "nodes": [
       {
         "id": "1",
-        "label": "Large Language Models",
+        "label": "Data Resilience Strategy",
         "properties": {
-          "topic": "natural language processing",
-          "technology": "deep learning"
+          "description": "A strategy for ensuring data availability and integrity in case of loss."
         }
       },
       {
         "id": "2",
-        "label": "Reinforcement Learning",
+        "label": "Disaster Recovery",
         "properties": {
-          "field": "machine learning",
-          "related_to": "human feedback"
+          "description": "Process and strategies to recover data after a disaster."
         }
       },
       {
         "id": "3",
-        "label": "Human Feedback",
+        "label": "MongoDB Atlas",
         "properties": {
-          "type": "feedback mechanism"
+          "description": "A cloud database service that provides data resilience features."
         }
       },
       {
         "id": "4",
-        "label": "Alignment",
+        "label": "Data Loss Incidents",
         "properties": {
-          "goal": "model alignment with human values"
+          "types": [
+            "Catastrophic Technical Failure",
+            "Human Error",
+            "Cyber Attacks"
+          ]
         }
       },
       {
         "id": "5",
-        "label": "Sentiment Analysis",
+        "label": "RPO",
         "properties": {
-          "application": "text processing"
+          "description": "Recovery Point Objective - acceptable amount of data loss measured in time."
         }
       },
       {
         "id": "6",
-        "label": "Text Summarization",
+        "label": "RTO",
         "properties": {
-          "application": "text processing"
+          "description": "Recovery Time Objective - acceptable amount of time to restore operations."
         }
       },
       {
         "id": "7",
-        "label": "Language Translation",
+        "label": "Compliance Frameworks",
         "properties": {
-          "application": "text processing"
+          "examples": [
+            "Appendix J",
+            "Digital Operational Resilience Act (DORA)",
+            "NIST Cybersecurity Framework"
+          ]
         }
       },
       {
         "id": "8",
-        "label": "Conversational AI Interface",
+        "label": "Backup Strategy",
         "properties": {
-          "type": "user interaction technology"
+          "components": [
+            "Backup Compliance Policy",
+            "Continuous Cloud Backup",
+            "Multi-Region Snapshot Distribution"
+          ]
+        }
+      },
+      {
+        "id": "9",
+        "label": "Prevention Methods",
+        "properties": {
+          "types": [
+            "Preventing Cloud Provider Outages",
+            "Preventing Ransomware Attacks"
+          ]
+        }
+      },
+      {
+        "id": "10",
+        "label": "Example Company Requirements",
+        "properties": {
+          "requirements": [
+            "Operational during outages",
+            "Encryption of PII",
+            "1 minute RPO",
+            "15 minute RTO",
+            "7 years immutable backups"
+          ]
         }
       }
     ],
@@ -75,161 +108,156 @@ curl -X POST "https://--modal-.modal.run" -F "file=@/Users/<user>/Downloads/LLM-
       {
         "source": "1",
         "target": "2",
-        "label": "utilizes"
+        "label": "includes"
       },
       {
         "source": "2",
         "target": "3",
-        "label": "based on"
+        "label": "utilized by"
+      },
+      {
+        "source": "4",
+        "target": "5",
+        "label": "influences"
+      },
+      {
+        "source": "4",
+        "target": "6",
+        "label": "influences"
+      },
+      {
+        "source": "7",
+        "target": "8",
+        "label": "drives"
       },
       {
         "source": "3",
-        "target": "4",
-        "label": "promotes"
+        "target": "9",
+        "label": "offers"
       },
       {
-        "source": "1",
-        "target": "5",
-        "label": "enables"
-      },
-      {
-        "source": "1",
-        "target": "6",
-        "label": "enables"
-      },
-      {
-        "source": "1",
-        "target": "7",
-        "label": "enables"
-      },
-      {
-        "source": "1",
+        "source": "10",
         "target": "8",
-        "label": "interacts_with"
+        "label": "requires"
+      },
+      {
+        "source": "3",
+        "target": "10",
+        "label": "meets"
+      },
+      {
+        "source": "5",
+        "target": "2",
+        "label": "informs"
+      },
+      {
+        "source": "6",
+        "target": "2",
+        "label": "informs"
       }
     ]
   }
 }
 ```
 
-
-**Visualizing the Knowledge Graph:**  
-   
-Let's explore the knowledge graph centered around **Large Language Models** and their interconnected concepts.  
-   
-1. **Central Node: Large Language Models (Node 1)**  
-   - **Properties:**  
-     - Topic: *Natural Language Processing*  
-     - Technology: *Deep Learning*  
-   
-2. **Connected Nodes and Relationships:**  
-  
-   - **Reinforcement Learning (Node 2)**  
-     - Field: *Machine Learning*  
-     - Related to: *Human Feedback*  
-     - **Relationship with Large Language Models:**  
-       - **Large Language Models** **utilize** **Reinforcement Learning**.  
-  
-   - **Human Feedback (Node 3)**  
-     - Type: *Feedback Mechanism*  
-     - **Relationship:**  
-       - **Reinforcement Learning** is **based on** **Human Feedback**.  
-  
-   - **Alignment (Node 4)**  
-     - Goal: *Model alignment with human values*  
-     - **Relationship:**  
-       - **Human Feedback** **promotes** **Alignment**.  
-  
-   - **Applications Enabled by Large Language Models:**  
-  
-     - **Sentiment Analysis (Node 5)**  
-       - Application: *Text Processing*  
-       - **Relationship:**  
-         - **Large Language Models** **enable** **Sentiment Analysis**.  
-  
-     - **Text Summarization (Node 6)**  
-       - Application: *Text Processing*  
-       - **Relationship:**  
-         - **Large Language Models** **enable** **Text Summarization**.  
-  
-     - **Language Translation (Node 7)**  
-       - Application: *Text Processing*  
-       - **Relationship:**  
-         - **Large Language Models** **enable** **Language Translation**.  
-  
-   - **Conversational AI Interface (Node 8)**  
-     - Type: *User Interaction Technology*  
-     - **Relationship:**  
-       - **Large Language Models** **interact with** **Conversational AI Interface**.  
-   
-**Creative Visualization:**  
-   
-Imagine the knowledge graph as a radiating web:  
-   
-- At the **center** is **Large Language Models**, representing their pivotal role in modern AI applications.  
-   
-- **Radiating Outward:**  
-  
-  - **Reinforcement Learning** connects directly to **Large Language Models**, illustrating how these models **utilize** reinforcement learning techniques.  
-  
-    - **Human Feedback** is connected to **Reinforcement Learning**, showing that these techniques are **based on** feedback from humans.  
-  
-      - **Alignment** branches from **Human Feedback**, highlighting that incorporating human feedback **promotes** the alignment of models with human values.  
-  
-  - **Applications** such as **Sentiment Analysis**, **Text Summarization**, and **Language Translation** branch out from **Large Language Models**, emphasizing the diverse capabilities **enabled** by these models.  
-  
-  - **Conversational AI Interface** connects to **Large Language Models**, depicting how these models **interact with** user interfaces to facilitate natural conversations between humans and machines.  
-   
-This visual presents a holistic view of how large language models are central to various AI advancements, methodologies, and applications, interconnected through a web of relationships.  
-   
-**Summary Reading Through the Knowledge Graph:**  
-   
-The knowledge graph outlines the ecosystem surrounding large language models in the field of artificial intelligence and natural language processing.  
-   
-- **Large Language Models** are advanced AI systems that leverage **deep learning** techniques to process and generate human-like text, playing a crucial role in **natural language processing**.  
-   
-- These models **utilize** **Reinforcement Learning**, a branch of **machine learning** that enables systems to learn optimal actions through rewards and feedback.  
-  
-  - Specifically, the reinforcement learning approaches are **based on** **Human Feedback**, where human responses and corrections guide the learning process.  
-  
-    - Incorporating human feedback **promotes** **Alignment**, ensuring that AI models act in ways that are consistent with human values and ethics.  
-   
-- **Large Language Models** **enable** various applications in **text processing**, including:  
-  
-  - **Sentiment Analysis**: Determining the emotional tone behind words to understand attitudes and opinions.  
-  
-  - **Text Summarization**: Condensing lengthy texts into concise summaries while retaining key information.  
-  
-  - **Language Translation**: Converting text from one language to another accurately and fluently.  
-   
-- They also **interact with** **Conversational AI Interfaces**, facilitating natural and intuitive communication between users and machines through chatbots and virtual assistants.  
-   
-**Understanding the Value of This Knowledge Graph:**  
-   
-The knowledge graph provides several valuable insights:  
-   
-1. **Clarity in Complex Relationships:**  
-   - It visually maps out how large language models are interconnected with various technologies and applications, simplifying the understanding of complex AI systems.  
-   
-2. **Highlighting Methodologies:**  
-   - By showing that large language models utilize reinforcement learning based on human feedback, it emphasizes the importance of integrating human insights into AI training processes.  
-   
-3. **Emphasizing Ethical Alignment:**  
-   - The path from human feedback to alignment underscores efforts to ensure AI systems align with human values, addressing ethical considerations in AI development.  
-   
-4. **Demonstrating Practical Applications:**  
-   - Identifying enabled applications like sentiment analysis, text summarization, and language translation showcases the real-world impact of large language models.  
-   
-5. **Facilitating User Interaction:**  
-   - The connection to conversational AI interfaces highlights the role of large language models in enhancing user experiences through natural interactions.  
-   
-6. **Educational Tool:**  
-   - The graph serves as a learning aid for students and professionals to grasp the interdependencies within AI technologies.  
-   
-7. **Strategic Development:**  
-   - For developers and businesses, understanding these relationships can guide strategic decisions in AI research, development, and deployment.  
-
 ---
 
-
+### **What Is a Knowledge Graph?**  
+   
+A knowledge graph is a visual representation of information, where nodes represent entities or concepts, and edges represent relationships between those entities. It's a way to map out complex information in a structured, easy-to-understand format.  
+   
+### **Central Theme: Data Resilience Strategy with MongoDB Atlas**  
+   
+At the heart of this knowledge graph is the **Data Resilience Strategy**. This strategy is focused on ensuring that data remains available and intact, even in the event of data loss incidents. MongoDB Atlas plays a crucial role in this strategy by providing the tools and features necessary to achieve data resilience.  
+   
+### **Breaking Down the Nodes and Relationships**  
+   
+Let's explore each node (concept) and how they connect through edges (relationships):  
+   
+1. **Data Resilience Strategy (Node 1)**  
+   - **Description:** A strategy for ensuring data availability and integrity in case of loss.  
+   - **Relationships:**  
+     - **Includes** **Disaster Recovery (Node 2):** The strategy encompasses disaster recovery plans.  
+   
+2. **Disaster Recovery (Node 2)**  
+   - **Description:** Processes and strategies to recover data after a disaster.  
+   - **Relationships:**  
+     - **Utilized by** **MongoDB Atlas (Node 3):** MongoDB Atlas is used as part of disaster recovery efforts.  
+     - **Informed by** **RPO (Node 5)** and **RTO (Node 6):** Recovery objectives help shape the disaster recovery plan.  
+   
+3. **MongoDB Atlas (Node 3)**  
+   - **Description:** A cloud database service that provides data resilience features.  
+   - **Relationships:**  
+     - **Offers** **Prevention Methods (Node 9):** Provides methods to prevent data loss incidents.  
+     - **Meets** **Example Company Requirements (Node 10):** Satisfies specific needs of companies.  
+     
+4. **Data Loss Incidents (Node 4)**  
+   - **Types:** Catastrophic Technical Failure, Human Error, Cyber Attacks.  
+   - **Relationships:**  
+     - **Influences** **RPO (Node 5)** and **RTO (Node 6):** The nature of data loss incidents affects recovery objectives.  
+   
+5. **Recovery Point Objective (RPO) (Node 5)**  
+   - **Description:** The maximum acceptable amount of data loss measured in time.  
+   - **Relationships:**  
+     - **Informs** **Disaster Recovery (Node 2):** Defines how often data should be backed up.  
+   
+6. **Recovery Time Objective (RTO) (Node 6)**  
+   - **Description:** The target time to restore normal operations after a disruption.  
+   - **Relationships:**  
+     - **Informs** **Disaster Recovery (Node 2):** Determines how quickly systems need to be restored.  
+   
+7. **Compliance Frameworks (Node 7)**  
+   - **Examples:** Appendix J, Digital Operational Resilience Act (DORA), NIST Cybersecurity Framework.  
+   - **Relationships:**  
+     - **Drives** **Backup Strategy (Node 8):** Regulations guide the implementation of backup strategies.  
+   
+8. **Backup Strategy (Node 8)**  
+   - **Components:** Backup Compliance Policy, Continuous Cloud Backup, Multi-Region Snapshot Distribution.  
+   - **Relationships:**  
+     - **Required by** **Example Company Requirements (Node 10):** Companies need a solid backup strategy to meet their requirements.  
+   
+9. **Prevention Methods (Node 9)**  
+   - **Types:** Preventing Cloud Provider Outages, Preventing Ransomware Attacks.  
+   - **Relationships:**  
+     - **Offered by** **MongoDB Atlas (Node 3):** Provides tools to prevent certain types of data loss.  
+   
+10. **Example Company Requirements (Node 10)**  
+    - **Requirements:**  
+      - Operational during outages.  
+      - Encryption of Personally Identifiable Information (PII).  
+      - 1-minute RPO.  
+      - 15-minute RTO.  
+      - 7 years of immutable backups.  
+    - **Relationships:**  
+      - **Requires** **Backup Strategy (Node 8):** Needs a backup strategy that fulfills these requirements.  
+      - **Met by** **MongoDB Atlas (Node 3):** MongoDB Atlas satisfies these requirements.  
+   
+### **Visualizing the Knowledge Graph**  
+   
+Imagine a diagram where each node is a circle containing the concept, and arrows (edges) connect related concepts with labels indicating their relationship.  
+   
+- At the center is **Data Resilience Strategy (Node 1)**.  
+- An arrow labeled "includes" points from **Data Resilience Strategy** to **Disaster Recovery (Node 2)**.  
+- From **Disaster Recovery**, arrows labeled "utilized by" point to **MongoDB Atlas (Node 3)**.  
+- **MongoDB Atlas** connects to **Prevention Methods (Node 9)** with "offers", and to **Example Company Requirements (Node 10)** with "meets".  
+- **Data Loss Incidents (Node 4)** point to **RPO (Node 5)** and **RTO (Node 6)** with "influences".  
+- **RPO** and **RTO** both point back to **Disaster Recovery** with "informs".  
+- **Compliance Frameworks (Node 7)** point to **Backup Strategy (Node 8)** with "drives".  
+- **Example Company Requirements** point to **Backup Strategy** with "requires".  
+   
+This visualization helps to see how each concept is interconnected and how they contribute to the overarching Data Resilience Strategy.  
+   
+### **Why Does This Matter?**  
+   
+Understanding this knowledge graph is important for several reasons:  
+   
+- **Holistic Understanding:** It provides a comprehensive view of how data resilience is achieved using specific tools and strategies.  
+    
+- **Interconnected Concepts:** Recognizing the relationships between concepts like compliance frameworks, backup strategies, and recovery objectives is crucial for effective planning.  
+   
+- **Practical Application:** For organizations, understanding how MongoDB Atlas can meet their specific requirements helps in making informed decisions about data management.  
+   
+- **Regulatory Compliance:** Seeing how compliance frameworks drive backup strategies underscores the importance of aligning technical solutions with legal requirements.  
+   
+- **Risk Management:** Identifying how data loss incidents influence recovery objectives emphasizes the need for proactive measures.  
    
