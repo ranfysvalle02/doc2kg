@@ -1,5 +1,7 @@
 # doc2kg
 
+![](https://github.com/ranfysvalle02/blog-drafts/raw/main/kg.png)
+
 ---
 
 curl -X POST "https://--modal-.modal.run" -F "file=@/Users/<user>/Downloads/demo.pdf""
