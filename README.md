@@ -2,6 +2,10 @@
 
 ![](https://github.com/ranfysvalle02/blog-drafts/raw/main/kg.png)
 
+https://github.com/ranfysvalle02/graph-knowledge
+
+https://github.com/ranfysvalle02/mongodb-graph
+
 ---
 
 curl -X POST "https://--modal-.modal.run" -F "file=@/Users/<user>/Downloads/demo.pdf""
