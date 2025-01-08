@@ -2,8 +2,7 @@
 
 ---
 
-curl -X POST "https://--modal-.modal.run" -F "file=@/Users/<user>/Downloads/LLM-Training-and-Applications-LLMs-are-trained-on-a-corpus-large-volume-of-text-data.jpg""
-
+curl -X POST "https://--modal-.modal.run" -F "file=@/Users/<user>/Downloads/demo.pdf""
 
 ---
 
