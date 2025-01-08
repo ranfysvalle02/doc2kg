@@ -10,150 +10,132 @@ curl -X POST "https://--modal-.modal.run" -F "file=@/Users/<user>/Downloads/LLM-
 ```
 {
   "ai_kg": {
-    "name": "Data Resilience Strategy with MongoDB Atlas",
+    "name": "MongoDB IoT Knowledge Graph",
     "nodes": [
       {
-        "id": "1",
-        "label": "Data Resilience Strategy",
+        "id": "mongodb",
+        "label": "MongoDB",
         "properties": {
-          "description": "A strategy for ensuring data availability and integrity in case of loss."
-        }
-      },
-      {
-        "id": "2",
-        "label": "Disaster Recovery",
-        "properties": {
-          "description": "Process and strategies to recover data after a disaster."
-        }
-      },
-      {
-        "id": "3",
-        "label": "MongoDB Atlas",
-        "properties": {
-          "description": "A cloud database service that provides data resilience features."
-        }
-      },
-      {
-        "id": "4",
-        "label": "Data Loss Incidents",
-        "properties": {
-          "types": [
-            "Catastrophic Technical Failure",
-            "Human Error",
-            "Cyber Attacks"
+          "description": "A flexible and scalable database designed for IoT applications.",
+          "features": [
+            "Rich document model",
+            "Time series collections",
+            "Horizontal scalability",
+            "Data tiering",
+            "Integrated analytics"
           ]
         }
       },
       {
-        "id": "5",
-        "label": "RPO",
-        "properties": {
-          "description": "Recovery Point Objective - acceptable amount of data loss measured in time."
-        }
-      },
-      {
-        "id": "6",
-        "label": "RTO",
-        "properties": {
-          "description": "Recovery Time Objective - acceptable amount of time to restore operations."
-        }
-      },
-      {
-        "id": "7",
-        "label": "Compliance Frameworks",
-        "properties": {
-          "examples": [
-            "Appendix J",
-            "Digital Operational Resilience Act (DORA)",
-            "NIST Cybersecurity Framework"
-          ]
-        }
-      },
-      {
-        "id": "8",
-        "label": "Backup Strategy",
+        "id": "iot_application",
+        "label": "IoT Application",
         "properties": {
           "components": [
-            "Backup Compliance Policy",
-            "Continuous Cloud Backup",
-            "Multi-Region Snapshot Distribution"
+            "Data Collection",
+            "Data Management",
+            "Data Analysis"
+          ],
+          "challenges": [
+            "Scalability",
+            "Flexibility",
+            "Real time analysis"
           ]
         }
       },
       {
-        "id": "9",
-        "label": "Prevention Methods",
+        "id": "data_collection",
+        "label": "Data Collection",
         "properties": {
-          "types": [
-            "Preventing Cloud Provider Outages",
-            "Preventing Ransomware Attacks"
+          "description": "The process of provisioning devices and collecting data.",
+          "challenges": [
+            "Diverse sensor data",
+            "Rapidly changing data structures"
           ]
         }
       },
       {
-        "id": "10",
-        "label": "Example Company Requirements",
+        "id": "data_analysis",
+        "label": "Data Analysis",
         "properties": {
-          "requirements": [
-            "Operational during outages",
-            "Encryption of PII",
-            "1 minute RPO",
-            "15 minute RTO",
-            "7 years immutable backups"
+          "description": "Aggregration and analysis of data for actionable insights.",
+          "challenges": [
+            "Creating a unified data model",
+            "Real-time data analysis"
+          ]
+        }
+      },
+      {
+        "id": "data_management",
+        "label": "Data Management",
+        "properties": {
+          "description": "Managing and storing IoT data efficiently.",
+          "challenges": [
+            "Scalability",
+            "Data tiering",
+            "Audit logs"
+          ]
+        }
+      },
+      {
+        "id": "time_series",
+        "label": "Time Series Data",
+        "properties": {
+          "description": "Data that is indexed in time order, essential for IoT applications."
+        }
+      },
+      {
+        "id": "atlas",
+        "label": "MongoDB Atlas",
+        "properties": {
+          "description": "Cloud database service provided by MongoDB.",
+          "features": [
+            "Auto-scaling",
+            "Atlas Stream Processing",
+            "Integrated search capabilities"
           ]
         }
       }
     ],
     "edges": [
       {
-        "source": "1",
-        "target": "2",
+        "source": "mongodb",
+        "target": "iot_application",
+        "label": "enables"
+      },
+      {
+        "source": "iot_application",
+        "target": "data_collection",
         "label": "includes"
       },
       {
-        "source": "2",
-        "target": "3",
-        "label": "utilized by"
+        "source": "iot_application",
+        "target": "data_management",
+        "label": "includes"
       },
       {
-        "source": "4",
-        "target": "5",
-        "label": "influences"
+        "source": "iot_application",
+        "target": "data_analysis",
+        "label": "includes"
       },
       {
-        "source": "4",
-        "target": "6",
-        "label": "influences"
+        "source": "data_collection",
+        "target": "time_series",
+        "label": "captures"
       },
       {
-        "source": "7",
-        "target": "8",
-        "label": "drives"
+        "source": "data_management",
+        "target": "time_series",
+        "label": "manages"
       },
       {
-        "source": "3",
-        "target": "9",
-        "label": "offers"
+        "source": "data_analysis",
+        "target": "time_series",
+        "label": "analyzes"
       },
       {
-        "source": "10",
-        "target": "8",
-        "label": "requires"
-      },
-      {
-        "source": "3",
-        "target": "10",
-        "label": "meets"
-      },
-      {
-        "source": "5",
-        "target": "2",
-        "label": "informs"
-      },
-      {
-        "source": "6",
-        "target": "2",
-        "label": "informs"
+        "source": "mongodb",
+        "target": "atlas",
+        "label": "provides"
       }
     ]
   }
@@ -161,103 +143,192 @@ curl -X POST "https://--modal-.modal.run" -F "file=@/Users/<user>/Downloads/LLM-
 ```
 
 ---
-
+   
 ### **What Is a Knowledge Graph?**  
    
-A knowledge graph is a visual representation of information, where nodes represent entities or concepts, and edges represent relationships between those entities. It's a way to map out complex information in a structured, easy-to-understand format.  
+A **knowledge graph** is a visual way to represent information. It uses **nodes** (circles) to represent concepts or entities, and **edges** (lines) to show relationships between them. Think of it as a map that shows how different ideas are connected.  
    
-### **Central Theme: Data Resilience Strategy with MongoDB Atlas**  
+---  
    
-At the heart of this knowledge graph is the **Data Resilience Strategy**. This strategy is focused on ensuring that data remains available and intact, even in the event of data loss incidents. MongoDB Atlas plays a crucial role in this strategy by providing the tools and features necessary to achieve data resilience.  
+### **Central Theme: MongoDB in IoT Applications**  
+   
+The central focus of this knowledge graph is how **MongoDB** enables and supports **IoT (Internet of Things) applications**. IoT involves connecting devices (like sensors, appliances, vehicles) to the internet, allowing them to send and receive data.  
+   
+---  
    
 ### **Breaking Down the Nodes and Relationships**  
    
-Let's explore each node (concept) and how they connect through edges (relationships):  
+Let's explore each node and see how they connect.  
    
-1. **Data Resilience Strategy (Node 1)**  
-   - **Description:** A strategy for ensuring data availability and integrity in case of loss.  
-   - **Relationships:**  
-     - **Includes** **Disaster Recovery (Node 2):** The strategy encompasses disaster recovery plans.  
+#### **1. MongoDB**  
    
-2. **Disaster Recovery (Node 2)**  
-   - **Description:** Processes and strategies to recover data after a disaster.  
-   - **Relationships:**  
-     - **Utilized by** **MongoDB Atlas (Node 3):** MongoDB Atlas is used as part of disaster recovery efforts.  
-     - **Informed by** **RPO (Node 5)** and **RTO (Node 6):** Recovery objectives help shape the disaster recovery plan.  
+- **Description:** A flexible and scalable database designed for IoT applications.  
+- **Features:**  
+  - **Rich Document Model:** Stores data in JSON-like documents, allowing for versatile and complex data structures.  
+  - **Time Series Collections:** Efficiently handles data indexed by time, which is common in IoT.  
+  - **Horizontal Scalability:** Easily adds more servers to handle increased data loads.  
+  - **Data Tiering:** Automatically moves data between different storage types based on how frequently it's accessed.  
+  - **Integrated Analytics:** Analyzes data within the database without needing external tools.  
+    
+**Relationships:**  
    
-3. **MongoDB Atlas (Node 3)**  
-   - **Description:** A cloud database service that provides data resilience features.  
-   - **Relationships:**  
-     - **Offers** **Prevention Methods (Node 9):** Provides methods to prevent data loss incidents.  
-     - **Meets** **Example Company Requirements (Node 10):** Satisfies specific needs of companies.  
-     
-4. **Data Loss Incidents (Node 4)**  
-   - **Types:** Catastrophic Technical Failure, Human Error, Cyber Attacks.  
-   - **Relationships:**  
-     - **Influences** **RPO (Node 5)** and **RTO (Node 6):** The nature of data loss incidents affects recovery objectives.  
+- **Enables** **IoT Application**  
+- **Provides** **MongoDB Atlas**  
    
-5. **Recovery Point Objective (RPO) (Node 5)**  
-   - **Description:** The maximum acceptable amount of data loss measured in time.  
-   - **Relationships:**  
-     - **Informs** **Disaster Recovery (Node 2):** Defines how often data should be backed up.  
+---  
    
-6. **Recovery Time Objective (RTO) (Node 6)**  
-   - **Description:** The target time to restore normal operations after a disruption.  
-   - **Relationships:**  
-     - **Informs** **Disaster Recovery (Node 2):** Determines how quickly systems need to be restored.  
+#### **2. IoT Application**  
    
-7. **Compliance Frameworks (Node 7)**  
-   - **Examples:** Appendix J, Digital Operational Resilience Act (DORA), NIST Cybersecurity Framework.  
-   - **Relationships:**  
-     - **Drives** **Backup Strategy (Node 8):** Regulations guide the implementation of backup strategies.  
+- **Components:**  
+  - **Data Collection**  
+  - **Data Management**  
+  - **Data Analysis**  
+- **Challenges:**  
+  - **Scalability:** Handling the vast amount of data from numerous devices.  
+  - **Flexibility:** Adapting to different types of devices and data formats.  
+  - **Real-Time Analysis:** Processing data as it arrives to make immediate decisions.  
    
-8. **Backup Strategy (Node 8)**  
-   - **Components:** Backup Compliance Policy, Continuous Cloud Backup, Multi-Region Snapshot Distribution.  
-   - **Relationships:**  
-     - **Required by** **Example Company Requirements (Node 10):** Companies need a solid backup strategy to meet their requirements.  
+**Relationships:**  
    
-9. **Prevention Methods (Node 9)**  
-   - **Types:** Preventing Cloud Provider Outages, Preventing Ransomware Attacks.  
-   - **Relationships:**  
-     - **Offered by** **MongoDB Atlas (Node 3):** Provides tools to prevent certain types of data loss.  
+- **Includes** **Data Collection**  
+- **Includes** **Data Management**  
+- **Includes** **Data Analysis**  
    
-10. **Example Company Requirements (Node 10)**  
-    - **Requirements:**  
-      - Operational during outages.  
-      - Encryption of Personally Identifiable Information (PII).  
-      - 1-minute RPO.  
-      - 15-minute RTO.  
-      - 7 years of immutable backups.  
-    - **Relationships:**  
-      - **Requires** **Backup Strategy (Node 8):** Needs a backup strategy that fulfills these requirements.  
-      - **Met by** **MongoDB Atlas (Node 3):** MongoDB Atlas satisfies these requirements.  
+---  
+   
+#### **3. Data Collection**  
+   
+- **Description:** The process of setting up devices and gathering data from them.  
+- **Challenges:**  
+  - **Diverse Sensor Data:** Different devices produce various types of data.  
+  - **Rapidly Changing Data Structures:** Data formats may change as devices update or new ones are added.  
+   
+**Relationships:**  
+   
+- **Captures** **Time Series Data**  
+   
+---  
+   
+#### **4. Data Management**  
+   
+- **Description:** Efficiently storing and organizing IoT data.  
+- **Challenges:**  
+  - **Scalability:** Managing large volumes of data.  
+  - **Data Tiering:** Optimizing storage costs by moving less-used data to cheaper storage.  
+  - **Audit Logs:** Keeping records of data access and changes for security and compliance.  
+   
+**Relationships:**  
+   
+- **Manages** **Time Series Data**  
+   
+---  
+   
+#### **5. Data Analysis**  
+   
+- **Description:** Processing and examining data to gain insights and inform actions.  
+- **Challenges:**  
+  - **Creating a Unified Data Model:** Combining data from different sources into a single format.  
+  - **Real-Time Data Analysis:** Quickly analyzing data as it comes in.  
+   
+**Relationships:**  
+   
+- **Analyzes** **Time Series Data**  
+   
+---  
+   
+#### **6. Time Series Data**  
+   
+- **Description:** Data indexed in time order, essential for tracking events over time in IoT.  
+   
+**Importance:**  
+   
+- IoT devices generate time-stamped data continuously (e.g., temperature readings every second).  
+- Efficient handling of this data type is crucial for performance.  
+   
+**Relationships:**  
+   
+- **Captured by** **Data Collection**  
+- **Managed by** **Data Management**  
+- **Analyzed by** **Data Analysis**  
+   
+---  
+   
+#### **7. MongoDB Atlas**  
+   
+- **Description:** A cloud database service provided by MongoDB.  
+- **Features:**  
+  - **Auto-Scaling:** Automatically adjusts resources based on demand.  
+  - **Atlas Stream Processing:** Processes continuous streams of data in real-time.  
+  - **Integrated Search Capabilities:** Allows powerful search functions within the data.  
+   
+**Relationships:**  
+   
+- **Provided by** **MongoDB**  
+   
+---  
+   
+### **Connecting the Dots: How Everything Relates**  
+   
+- **MongoDB** is the foundational database technology that **enables** the development and operation of **IoT Applications**.  
+- An **IoT Application** **includes** three main components:  
+  - **Data Collection**  
+  - **Data Management**  
+  - **Data Analysis**  
+- **Data Collection**, **Data Management**, and **Data Analysis** all deal with **Time Series Data**:  
+  - **Data Collection** **captures** this data from devices.  
+  - **Data Management** **manages** the storage and organization of the data.  
+  - **Data Analysis** **analyzes** the data to extract useful information.  
+- **MongoDB Atlas** is a service **provided by** MongoDB to make deploying and managing databases easier, especially in the cloud.  
+   
+---  
    
 ### **Visualizing the Knowledge Graph**  
    
-Imagine a diagram where each node is a circle containing the concept, and arrows (edges) connect related concepts with labels indicating their relationship.  
+Imagine a diagram where:  
    
-- At the center is **Data Resilience Strategy (Node 1)**.  
-- An arrow labeled "includes" points from **Data Resilience Strategy** to **Disaster Recovery (Node 2)**.  
-- From **Disaster Recovery**, arrows labeled "utilized by" point to **MongoDB Atlas (Node 3)**.  
-- **MongoDB Atlas** connects to **Prevention Methods (Node 9)** with "offers", and to **Example Company Requirements (Node 10)** with "meets".  
-- **Data Loss Incidents (Node 4)** point to **RPO (Node 5)** and **RTO (Node 6)** with "influences".  
-- **RPO** and **RTO** both point back to **Disaster Recovery** with "informs".  
-- **Compliance Frameworks (Node 7)** point to **Backup Strategy (Node 8)** with "drives".  
-- **Example Company Requirements** point to **Backup Strategy** with "requires".  
+- **MongoDB** is connected to **IoT Application** with an arrow labeled "enables".  
+- **IoT Application** has three branches leading to **Data Collection**, **Data Management**, and **Data Analysis**, each labeled "includes".  
+- **Data Collection**, **Data Management**, and **Data Analysis** all point to **Time Series Data** with arrows labeled "captures", "manages", and "analyzes" respectively.  
+- **MongoDB** also connects to **MongoDB Atlas** with an arrow labeled "provides".  
    
-This visualization helps to see how each concept is interconnected and how they contribute to the overarching Data Resilience Strategy.  
+---  
    
 ### **Why Does This Matter?**  
    
-Understanding this knowledge graph is important for several reasons:  
+Understanding this knowledge graph is significant for several reasons:  
    
-- **Holistic Understanding:** It provides a comprehensive view of how data resilience is achieved using specific tools and strategies.  
+#### **1. Handling Vast Amounts of Data**  
+   
+- **Scalability:** IoT devices generate a massive amount of data. MongoDB's horizontal scalability allows databases to grow seamlessly as more data is collected.  
     
-- **Interconnected Concepts:** Recognizing the relationships between concepts like compliance frameworks, backup strategies, and recovery objectives is crucial for effective planning.  
+#### **2. Flexibility in Data Structures**  
    
-- **Practical Application:** For organizations, understanding how MongoDB Atlas can meet their specific requirements helps in making informed decisions about data management.  
+- **Rich Document Model:** IoT environments often involve various devices producing different data types. MongoDB's flexible data model can handle this diversity without rigid schemas.  
    
-- **Regulatory Compliance:** Seeing how compliance frameworks drive backup strategies underscores the importance of aligning technical solutions with legal requirements.  
+#### **3. Efficient Time Series Data Management**  
    
-- **Risk Management:** Identifying how data loss incidents influence recovery objectives emphasizes the need for proactive measures.  
+- **Time Series Collections:** Specialized storage and querying capabilities for time-series data improve performance and reduce storage costs.  
+    
+#### **4. Real-Time Data Processing and Analysis**  
+   
+- **Integrated Analytics and Atlas Stream Processing:** By processing data in real-time, businesses can react immediately to events, which is crucial in areas like monitoring, automation, and alerting systems.  
+   
+#### **5. Cost Optimization**  
+   
+- **Data Tiering:** Automatically moves infrequently accessed data to less expensive storage, optimizing costs without sacrificing accessibility.  
+   
+#### **6. Simplified Deployment and Management**  
+   
+- **MongoDB Atlas:** Offers a fully managed database service in the cloud, reducing the burden of database administration and allowing developers to focus on building applications.  
+   
+---  
+   
+### **Real-World Applications**  
+   
+- **Smart Homes:** Managing data from various sensors and devices controlling lighting, temperature, and security.  
+- **Industrial IoT:** Monitoring equipment performance and predicting maintenance needs in factories.  
+- **Healthcare:** Tracking patient vital signs with wearable devices and providing real-time alerts.  
+- **Transportation:** Managing fleets with GPS data, optimizing routes, and tracking vehicle performance.  
+   
+---  
    
